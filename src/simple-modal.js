@@ -240,7 +240,7 @@
 				$overlay.unbind();
 	            $container.addClass('hide-footer');
 
-                var $image = $('<img>', {'src': param.url}).load(function() {
+                var $image = $('<img>', {'src': param.url}).on('load',function() {
 					var $this = $(this),
                         $window = $(window),
                         $content = $container.removeClass('loading').find('.contents').empty().append($this.css('opacity', 0)),
@@ -260,7 +260,7 @@
 
 			} else $container
                     .find('.contents')
-                    .load(param.url, function(responseText, textStatus, XMLHttpRequest) {
+                    .on('load', param.url, function(responseText, textStatus, XMLHttpRequest) {
                         $container.removeClass('loading');
 
                         if (textStatus !== 'success') {
