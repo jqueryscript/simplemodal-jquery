@@ -260,7 +260,7 @@
 
 			} else $container
                     .find('.contents')
-                    .on('load', param.url, function(responseText, textStatus, XMLHttpRequest) {
+                    .load(param.url, function(responseText, textStatus, XMLHttpRequest) {
                         $container.removeClass('loading');
 
                         if (textStatus !== 'success') {
